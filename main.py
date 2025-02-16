@@ -1,6 +1,10 @@
 import pygame
+
+import buttons
+import helpers
 from helpers import screen
 from constants import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK
+from classes.Button import Button
 
 
 def main():
@@ -30,6 +34,22 @@ def main():
         # Display the background, presented Image, likes, comments, tags and location(on the Image)
         screen.fill(BLACK)
         screen.blit(background, (0, 0))
+        if helpers.mouse_in_button(buttons.like_button,pygame.mouse.get_pos()):
+            ##use function for adding likes
+            pass
+        if helpers.mouse_in_button(buttons.comment_button, pygame.mouse.get_pos()):
+            ##use function for comment
+            pass
+
+        if helpers.mouse_in_button(buttons.click_post_button, pygame.mouse.get_pos()):
+            ##use function for next post
+            pass
+        if helpers.mouse_in_button(buttons.view_more_comments_button, pygame.mouse.get_pos()):
+            ##use funtion for seeing more comments
+            pass
+
+
+
 
 
 

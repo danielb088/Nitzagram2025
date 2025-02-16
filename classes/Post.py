@@ -6,12 +6,12 @@ from constants import *
 from helpers import screen
 
 class Post:
-    def __init__(self, username, location, description, counter_likes, comments):
+    def __init__(self, username, location, description):
         self.username = username
         self.location = location
         self.description = description
-        self.counter_likes = counter_likes
-        self.comments = comments
+        self.counter_likes = 0
+        self.comments = []
 
     def display(self):
         #display_surface.blit(text, textRect)
@@ -24,10 +24,13 @@ class Post:
         pass
 
     def display_header(self):
-        pass
+        screen.blit(self.description,(DESCRIPTION_TEXT_X_POS,DESCRIPTION_TEXT_Y_POS))
+        screen.blit(self.location,(LOCATION_TEXT_X_POS,LOCATION_TEXT_Y_POS))
+
 
     def display_likes(self):
-        pass
+        screen.blit(self.counter_likes,(LIKE_BUTTON_X_POS,LIKE_BUTTON_Y_POS))
+
 
     def display_comments(self):
         """
@@ -36,7 +39,7 @@ class Post:
 
         :return: None
         """
-        position_index = self.comments_display_index
+        position_index = self.comments
         # If there are more than 4 comments, print "view more comments"
         if len(self.comments) > NUM_OF_COMMENTS_TO_DISPLAY:
             comment_font = pygame.font.SysFont('chalkduster.ttf',
