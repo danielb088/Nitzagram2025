@@ -11,7 +11,7 @@ class ImagePost(Post):
         self.image = pygame.image.load(image)
 
 
-    def override display_content(self):
+    def display_content(self):
         screen.display(self.image)
 
 
