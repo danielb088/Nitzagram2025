@@ -31,6 +31,8 @@ def main():
         screen.fill(BLACK)
         screen.blit(background, (0, 0))
 
+
+
         # Update display - without input update everything
         pygame.display.update()
 

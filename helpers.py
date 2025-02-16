@@ -4,7 +4,6 @@ from constants import *
 
 screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT), pygame.RESIZABLE)
 
-
 def from_text_to_array(text):
     """
     the function get text and break it into sentences that fits the screen, in
@@ -32,7 +31,6 @@ def from_text_to_array(text):
         text_array.append(text)
     return text_array
 
-
 def mouse_in_button(button, mouse_pos):
     """
     The function get button and mouse press position on screen and return True
@@ -56,7 +54,6 @@ def draw_comment_text_box():
                      pygame.Rect(VIEW_MORE_COMMENTS_X_POS + 1,
                                  VIEW_MORE_COMMENTS_Y_POS + 1, 298, 18))
     pygame.display.flip()
-
 
 # Get the comment that the user typed will using Nitzagram and translate it
 # to string
@@ -90,7 +87,6 @@ def read_comment_from_user():
                              VIEW_MORE_COMMENTS_Y_POS + 1))
                 pygame.display.update()
     return new_comment
-
 
 def center_text(num_of_rows, text_to_display, row_number):
     """

@@ -1,5 +1,7 @@
 import pygame
+import Comment
 
+import helpers
 from constants import *
 from helpers import screen
 
@@ -14,17 +16,17 @@ class Post:
     def display(self):
         #display_surface.blit(text, textRect)
         self.display_content()
-        self.display_title()
-        self.display_buttons()
+        self.display_header()
+        self.display_likes()
         self.display_comments()
 
     def display_content(self):
         pass
 
-    def display_title(self):
+    def display_header(self):
         pass
 
-    def display_buttons(self):
+    def display_likes(self):
         pass
 
     def display_comments(self):
@@ -55,3 +57,7 @@ class Post:
 
     def add_like(self):
         self.counter_likes += 1
+
+    def add_comment(self, text):
+        self.comments.append(Comment(text))
+
