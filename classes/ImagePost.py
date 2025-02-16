@@ -16,6 +16,3 @@ class ImagePost(Post):
 
     def display_content(self):
         pass
-
-    def display_image(self):
-        screen.display(self.image)
