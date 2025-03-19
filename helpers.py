@@ -5,13 +5,6 @@ from constants import *
 screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT), pygame.RESIZABLE)
 
 def from_text_to_array(text):
-    """
-    the function get text and break it into sentences that fits the screen, in
-    case the text too long to for one line
-    :param text: string
-        text to show on screen
-    :return: list of sentences
-    """
     text_array = []
     text_to_edit = text
     if len(text) > 20:
