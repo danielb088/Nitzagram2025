@@ -12,6 +12,7 @@ class Post:
         self.description = description
         self.counter_likes = 0
         self.comments = []
+        self.comments_display_index = 0
 
     def display(self):
         #display_surface.blit(text, textRect)
@@ -24,8 +25,16 @@ class Post:
         pass
 
     def display_header(self):
-        screen.blit(self.description,(DESCRIPTION_TEXT_X_POS,DESCRIPTION_TEXT_Y_POS))
-        screen.blit(self.location,(LOCATION_TEXT_X_POS,LOCATION_TEXT_Y_POS))
+        font = pygame.font.SysFont('chalkduster.ttf',
+                                           UI_FONT_SIZE)
+
+
+        usernameText1 = font.render(self.username, True, BLACK)
+        locationText2 = font.render(self.location,True,BLACK)
+        descriptionText3 = font.render(self.description,True,BLACK)
+        screen.blit(usernameText1,(USER_NAME_X_POS,USER_NAME_Y_POS))
+        screen.blit(locationText2,(LOCATION_TEXT_X_POS,LOCATION_TEXT_Y_POS))
+        screen.blit(descriptionText3,(DESCRIPTION_TEXT_X_POS,DESCRIPTION_TEXT_Y_POS))
 
 
     def display_likes(self):
@@ -39,7 +48,7 @@ class Post:
 
         :return: None
         """
-        position_index = self.comments
+        position_index = self.comments_display_index
         # If there are more than 4 comments, print "view more comments"
         if len(self.comments) > NUM_OF_COMMENTS_TO_DISPLAY:
             comment_font = pygame.font.SysFont('chalkduster.ttf',
@@ -58,9 +67,16 @@ class Post:
             if i >= NUM_OF_COMMENTS_TO_DISPLAY - 1:
                 break
 
+
     def add_like(self):
         self.counter_likes += 1
 
     def add_comment(self, text):
         self.comments.append(Comment(text))
+
+    def show_more_comments(self):
+        if self.comments_display_index >= len(self.comments) - 1:
+            self.comments_display_index = 0
+        else:
+            self.comments_display_index += 1
 
