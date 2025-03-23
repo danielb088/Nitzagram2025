@@ -9,7 +9,7 @@ from helpers import screen
 
 class ImagePost(Post):
 
-    def __init__(self, username, location, description, likes_counter, comments,image):
+    def __init__(self, username, location, description, image):
         super().__init__( username, location, description)
         self.image = pygame.image.load(image)
         self.image = pygame.transform.scale(self.image, POST_WIDTH, POST_HEIGHT)
